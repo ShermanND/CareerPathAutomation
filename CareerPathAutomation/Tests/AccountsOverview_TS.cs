@@ -1,0 +1,151 @@
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using System;
+using System.Threading;
+
+namespace CareerPathAutomation
+{
+    [TestFixture]
+    public class AccountsOverview
+    {
+        IWebDriver driver;
+        AccountsOverview_POM accountsoverviewpom;
+
+        [OneTimeSetUp]
+        public void Setup()
+        {
+            // Initialize driver setup
+            driver = new ChromeDriver();
+            Driver_POM driverpom = new Driver_POM(driver);
+            driverpom.DriverSetUp();
+
+            // Login user
+            Login_POM loginpom = new Login_POM(driver);
+            loginpom.LoginUser(By.CssSelector(loginpom.input_username), By.CssSelector(loginpom.input_password));
+
+            // Verify login error message is true
+            Boolean loginError = loginpom.GetElementIsDisplayed(By.CssSelector(loginpom.p_errorMessage));
+
+            // Register user if loginError is true
+            RegisterUser_POM registeruserpom = new RegisterUser_POM(driver);
+            registeruserpom.RegisterUser(loginError);
+
+            // Navigate to Accounts Overview screen
+            accountsoverviewpom = new AccountsOverview_POM(driver);
+            accountsoverviewpom.NavigateToAccountsOverview();
+
+            Thread.Sleep(3000);
+        }
+
+        [Test, Order(1)]
+        [Category("Accounts Overview | Accounts Overview screen title is visible")]
+        public void Test0201()
+        {
+            // Given I have accessed to Parabank website
+            // When I navigate to Accounts Overview screen
+            // Then I verify that Accounts Overview screen title is visible
+            accountsoverviewpom.VerifyElementIsDisplayed(By.CssSelector(accountsoverviewpom.h1_accountsOverview));
+        }
+
+        [Test, Order(2)]
+        [Category("Accounts Overview | Screen title is Accounts Overview")]
+        public void Test0202()
+        {
+            // Given I have accessed to Parabank website
+            // When I navigate to Accounts Overview screen
+            // Then I verify that Screen title is Accounts Overview   
+            accountsoverviewpom.VerifyElementText(By.CssSelector(accountsoverviewpom.h1_accountsOverview), accountsoverviewpom.title_accountsOverview);
+        }
+
+        [Test, Order(3)]
+        [Category("Accounts Overview | Account, Balance & Available Amout are displayed as labels")]
+        public void Test0203()
+        {
+            // Given I have accessed to Parabank website
+            // When I navigate to Accounts Overview screen
+            // Then I verify that Account, Balance & Available Amout are displayed as labels
+            accountsoverviewpom.VerifyElementsLabels(By.CssSelector(accountsoverviewpom.table_columns), accountsoverviewpom.columnName);
+        }
+
+        [Test, Order(4)]
+        [Category("Accounts Overview | Account column displays the account number")]
+        public void Test0204()
+        {
+            // Given I have accessed to Parabank website
+            // When I navigate to Accounts Overview screen
+            // Then I verify that Account column displays the account number
+            accountsoverviewpom.VerifyElementIsDisplayed(By.CssSelector(accountsoverviewpom.link_accountNumber));
+        }
+
+        [Test, Order(5)]
+        [Category("Accounts Overview | Account number redirects to Account Activity screen")]
+        public void Test0205()
+        {
+            // Given I have accessed to Parabank website
+            // And I have navigated to Accounts Overview screen
+            // When I click on the account number
+            accountsoverviewpom.ClickElement(By.CssSelector(accountsoverviewpom.link_accountNumber));
+
+            // Then I verify that Account number redirects to Account Activity screen
+            accountsoverviewpom.VerifyElementText(By.CssSelector(accountsoverviewpom.h1_accountActivity), accountsoverviewpom.title_accountActivity);
+            driver.Navigate().Back();
+        }
+
+        [Test, Order(6)]
+        [Category("Accounts Overview | Balance column displays the balance amount")]
+        public void Test0206()
+        {
+            // Given I have accessed to Parabank website
+            // When I navigate to Accounts Overview screen
+            // Then I verify that Balance column displays the balance amount
+            accountsoverviewpom.VerifyElementIsDisplayed(By.CssSelector(accountsoverviewpom.td_balance));
+        }
+
+        [Test, Order(7)]
+        [Category("Accounts Overview | Available Amount displays the available amount")]
+        public void Test0207()
+        {
+            //	Given I have accessed to Parabank website
+            // When I navigate to Accounts Overview screen
+            // Then I verify that Available Amount displays the available amount
+            accountsoverviewpom.VerifyElementIsDisplayed(By.CssSelector(accountsoverviewpom.td_availableamount));
+        }
+
+        [Test, Order(8)]
+        [Category("Accounts Overview | Total displays the total amount")]
+        public void Test0208()
+        {
+            // Given I have accessed to Parabank website
+            // When I navigate to Accounts Overview screen
+            // Then I verify that Total column displays the total amount
+            accountsoverviewpom.VerifyElementIsDisplayed(By.CssSelector(accountsoverviewpom.b_totalamount));
+        }
+
+        [Test, Order(9)]
+        [Category("Accounts Overview | 'Balance includes deposits that may be subject to holds' footnote is visible")]
+        public void Test0209()
+        {
+            // Given I have accessed to Parabank website
+            // When I navigate to Accounts Overview screen
+            // Then I verify that 'Balance includes deposits that may be subject to holds' footnote is visible
+            accountsoverviewpom.VerifyElementIsDisplayed(By.CssSelector(accountsoverviewpom.label_note));
+        }
+
+        [Test, Order(10)]
+        [Category("Accounts Overview | Footnote text is: Balance includes deposits that may be subject to holds")]
+        public void Test0210()
+        {
+            // Given I have accessed to Parabank website
+            // When I navigate to Accounts Overview screen
+            // Then I verify that the Footnote text is: Balance includes deposits that may be subject to holds
+            accountsoverviewpom.VerifyElementText(By.CssSelector(accountsoverviewpom.label_note), accountsoverviewpom.footnote);
+        }
+
+        [OneTimeTearDown]
+        public void TearDown()
+        {
+            driver.Quit();
+        }
+    }
+}
