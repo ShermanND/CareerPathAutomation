@@ -20,8 +20,8 @@ public class Login_POM
     private IWebElement loginButton => driver.FindElement(By.CssSelector(button_login));
 
     // CREDENTIALS
-    public string username = "user3";
-    public string password = "user3";
+    public string username = "user1";
+    public string password = "user1";
 
     public void LoginUser(By Username, By Password)
     {

@@ -12,6 +12,6 @@ public class Driver_POM
     public void DriverSetUp()
     {
         driver.Navigate().GoToUrl("https://parabank.parasoft.com/parabank/index.htm");
-        driver.Manage().Window.FullScreen();
+        driver.Manage().Window.FullScreen(); 
     }
 }

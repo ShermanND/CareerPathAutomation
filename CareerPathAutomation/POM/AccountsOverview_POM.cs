@@ -38,8 +38,8 @@ public class AccountsOverview_POM
 
     // ELEMENT TEXT
     public string footnote = "*Balance includes deposits that may be subject to holds";
-    public string title_accountsOverview = "Accounts Overview";
-    public string title_accountActivity = "Account Activity";
+    public string title_accountsOverview = "Accounts Overview"; 
+    public string title_accountActivity = "Account Activity"; 
 
     // LIST
     public List<string> columnName = new List<string> { "Account", "Balance*", "Available Amount" };
