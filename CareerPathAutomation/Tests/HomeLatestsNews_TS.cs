@@ -20,7 +20,7 @@ namespace CareerPathAutomation
             Driver_POM driverpom = new Driver_POM(driver);
             driverpom.DriverSetUp();
 
-            homelatestnewspom = new HomeLatestNews_POM(driver); 
+            homelatestnewspom = new HomeLatestNews_POM(driver);
             Thread.Sleep(3000);
         }
 

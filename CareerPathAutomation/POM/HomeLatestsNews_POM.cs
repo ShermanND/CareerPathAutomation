@@ -17,7 +17,7 @@ public class HomeLatestNews_POM
     public string link_accountTransfers = "//a[text()=\"New Online Account Transfers\"]";
 
     // SCREEN TITLE
-    public string title_news = "ParaBank | News"; 
+    public string title_news = "ParaBank | News";
 
     public void ClickOnLink(By selector)
     {

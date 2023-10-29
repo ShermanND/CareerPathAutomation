@@ -17,7 +17,7 @@ namespace CareerPathAutomation
         {
             // Initialize driver setup
             driver = new ChromeDriver();
-            Driver_POM driverpom = new Driver_POM(driver); 
+            Driver_POM driverpom = new Driver_POM(driver);
             driverpom.DriverSetUp();
 
             // Verify login error message is true

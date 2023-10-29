@@ -17,7 +17,7 @@ public class RegisterUser_POM
     public string btn_register = "input[value=\"Register\"]";
 
     // USER DATA
-    public string userCredential = "user1";
+    public string userCredential = "user3";
 
     public void RegisterUser(Boolean loginError)
     {

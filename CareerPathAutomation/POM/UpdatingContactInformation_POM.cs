@@ -61,7 +61,7 @@ public class UpdatingContactInformation_POM
     public string successfulUpdateMessage = "Your updated address and phone number have been added to the system.";
 
     // USER CREDENTIAL
-    public string user = "user1";
+    public string user = "user2";
 
     public void NavigateToUpdatingContactInformation()
     {
