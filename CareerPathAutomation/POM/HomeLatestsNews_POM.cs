@@ -13,8 +13,8 @@ public class HomeLatestNews_POM
 
     // SELECTORS
     public string link_reOpened = "//a[text()=\"ParaBank Is Now Re-Opened\"]";
-    public string link_billPay = "//a[text()=\"New Online Bill Pay\"]";
-    public string link_accountTransfers = "//a[text()=\"New Online Account Transfers\"]";
+    public string link_billPay = "//a[text()=\"New! Online Bill Pay\"]";
+    public string link_accountTransfers = "//a[text()=\"New! Online Account Transfers\"]";
 
     // SCREEN TITLE
     public string title_news = "ParaBank | News";
