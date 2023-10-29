@@ -9,6 +9,7 @@ public class Driver_POM
         this.driver = driver;
     }
 
+    // METHODS
     public void DriverSetUp()
     {
         driver.Navigate().GoToUrl("https://parabank.parasoft.com/parabank/index.htm");

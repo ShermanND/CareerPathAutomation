@@ -19,6 +19,7 @@ public class HomeLatestNews_POM
     // SCREEN TITLE
     public string title_news = "ParaBank | News";
 
+    // METHODS
     public void ClickOnLink(By selector)
     {
         IWebElement link = driver.FindElement(selector);

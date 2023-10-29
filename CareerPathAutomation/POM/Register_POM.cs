@@ -19,6 +19,7 @@ public class RegisterUser_POM
     // USER DATA
     public string userCredential = "user1";
 
+    // METHODS
     public void RegisterUser(Boolean loginError)
     {
         if (loginError == true)

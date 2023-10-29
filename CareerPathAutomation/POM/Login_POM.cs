@@ -23,6 +23,7 @@ public class Login_POM
     public string username = "user3";
     public string password = "user3";
 
+    // METHODS
     public void LoginUser(By Username, By Password)
     {
         driver.FindElement(Username).SendKeys(username);

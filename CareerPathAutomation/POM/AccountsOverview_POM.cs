@@ -32,7 +32,6 @@ public class AccountsOverview_POM
 
     public string table_columns = "table[id=\"accountTable\"] th";
 
-
     // LOCATORS
     private IWebElement accountsOverviewLink => driver.FindElement(By.CssSelector(link_accountsOverview));
 
@@ -44,6 +43,7 @@ public class AccountsOverview_POM
     // LIST
     public List<string> columnName = new List<string> { "Account", "Balance*", "Available Amount" };
 
+    // METHODS
     public void NavigateToAccountsOverview()
     {
         accountsOverviewLink.Click();

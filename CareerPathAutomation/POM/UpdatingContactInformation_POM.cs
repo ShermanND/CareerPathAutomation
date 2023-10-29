@@ -63,6 +63,7 @@ public class UpdatingContactInformation_POM
     // USER CREDENTIAL
     public string user = "user2";
 
+    // METHODS
     public void NavigateToUpdatingContactInformation()
     {
         driver.FindElement(By.CssSelector(link_updateContactInfo)).Click();
