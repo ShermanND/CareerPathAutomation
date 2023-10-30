@@ -19,11 +19,11 @@ namespace CareerPathAutomation
         public void Setup()
         {
             driver.Navigate().GoToUrl("https://parabank.parasoft.com/parabank/index.htm");
-            driver.Manage().Window.FullScreen();
+            driver.Manage().Window.Maximize();
         }
         [Test (), Order(1)]
         [Category("Home Screen | Open About Us")]
-        public void test01() {
+        public void Test01() {
             Homemenu1 homemenu = new Homemenu1(driver);
             homemenu.clickonAboutUs();
             string title = driver.Title;
@@ -32,7 +32,7 @@ namespace CareerPathAutomation
 
         [Test(), Order(2)]
         [Category("Home Screen | Open Products")]
-        public void test02()
+        public void Test02()
         {
             Homemenu1 homemenu = new Homemenu1(driver);
             homemenu.clickonProduct();
@@ -42,7 +42,7 @@ namespace CareerPathAutomation
 
         [Test(), Order(3)]
         [Category("Home Screen | Open Locations")]
-        public void test03()
+        public void Test03()
         {
             Homemenu1 homemenu = new Homemenu1(driver);
             driver.Navigate().Back();
