@@ -8,7 +8,7 @@ using System.Threading;
 namespace CareerPathAutomation
 {
     [TestFixture]
-    public class HomeMenu
+    public class HomeMenu_TS
     {
         IWebDriver driver = new ChromeDriver();
         const string TITLE_ABOUT_US = "ParaBank | About Us";
@@ -23,9 +23,9 @@ namespace CareerPathAutomation
         }
         [Test (), Order(1)]
         [Category("Home Screen | Open About Us")]
-        public void test01() {
-            Homemenu1 homemenu = new Homemenu1(driver);
-            homemenu.clickonAboutUs();
+        public void Test01() {
+            Homemenu_TS homemenu_TS = new Homemenu_TS(driver);
+            homemenu_TS.clickonAboutUs();
             string title = driver.Title;
             Assert.AreEqual(TITLE_ABOUT_US, title);
         }
@@ -34,8 +34,8 @@ namespace CareerPathAutomation
         [Category("Home Screen | Open Products")]
         public void test02()
         {
-            Homemenu1 homemenu = new Homemenu1(driver);
-            homemenu.clickonProduct();
+            HomeMenu_TS homemenu_TS = new HomeMenu_TS(driver);
+            homemenu_TS.clickonProduct();
             string title = driver.Title;
             Assert.AreEqual(TITLE_PRODUCTS, title);
         }
@@ -44,9 +44,9 @@ namespace CareerPathAutomation
         [Category("Home Screen | Open Locations")]
         public void test03()
         {
-            Homemenu1 homemenu = new Homemenu1(driver);
+            HomeMenu_TS homemenu_TS = new HomeMenu_TS(driver);
             driver.Navigate().Back();
-            homemenu.clickonLocations();
+            homemenu_TS.clickonLocations();
             string title = driver.Title;
             Assert.AreEqual(TITLE_LOCATIONS, title);
         }

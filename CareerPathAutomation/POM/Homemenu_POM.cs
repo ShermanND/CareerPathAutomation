@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace CareerPathAutomation
 {
-    public class Homemenu1
+    public class Homemenu_POM
     {
         private IWebDriver driver;
-        public Homemenu1(IWebDriver driver)
+        public Homemenu_POM(IWebDriver driver)
         {
             this.driver = driver;
         }
