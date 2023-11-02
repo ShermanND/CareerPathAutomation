@@ -94,7 +94,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\AccountsOverview_TS.cs" />
     <Compile Include="Tests\HomeLatestsNews_TS.cs" />
-    <Compile Include="Tests\HomeMenu.cs" />
+    <Compile Include="Tests\HomeMenu_TS.cs" />
     <Compile Include="Tests\UpdatingContactInformation_TS.cs" />
   </ItemGroup>
   <ItemGroup>
