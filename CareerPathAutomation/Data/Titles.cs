@@ -10,6 +10,8 @@
         public string aboutUs = "ParaBank | About Us";
         public string products = "Automated Software Testing Tool Suite | Parasoft";
         public string locations = "Automated Software Testing Solutions For Every Testing Need";
+        public string home = "ATM Services";
+        public string customerCare = "Customer Care";
 
     }
 }

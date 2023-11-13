@@ -64,6 +64,32 @@ namespace CareerPathAutomation
             Assert.AreEqual(titles.locations, title);
         }
 
+        [Test(), Order(4)]
+        [Category("Home screen | Home screen button")]
+        public void test04()
+        {
+            // Given I have accessed to Parabank website
+            // When I navigate to Home screen
+            homemenu.clickonHomeScreen();
+
+            //Then I verify that home screen is display as screen
+            string title = driver.Title;
+            Assert.AreEqual(titles.home, title);
+        }
+
+        [Test(), Order(5)]
+        [Category ("Home screen | Home screen customer care")]
+        public void Test03()
+        {
+            // Given I have accessed to Parabank website
+            // When I navigate to Home screen
+            homemenu.clickonCustomerCare();
+
+            //Then I verify that customer care is displayed as screen
+            string title = driver.Title;
+            Assert.AreEqual(titles.customerCare, title);
+        }
+
         [OneTimeTearDown]
         public void Teardown()
         {
