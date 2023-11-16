@@ -24,7 +24,7 @@ jobs:
       with:
         dotnet-version: 8.0.100
     - name: Restore dependencies
-      run: dotnet restore CareerPathAutomation/CareerPathAutomation.csproj
+      run: dotnet restore path/CareerPathAutomation/CareerPathAutomation.csproj
     - name: Build
       run: dotnet build --no-restore
     - name: Test
