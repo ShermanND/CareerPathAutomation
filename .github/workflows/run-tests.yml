@@ -28,7 +28,7 @@ jobs:
       # Set up environment
       - uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '3.0.3'
+          dotnet-version: '8.0.0'
 
       # Restore packages
       - name: Restore packages
