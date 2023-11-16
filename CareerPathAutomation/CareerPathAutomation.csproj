@@ -98,8 +98,6 @@
     <Compile Include="Tests\UpdatingContactInformation_TS.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include=".github\workflows\run-tests.yml" />
-    <None Include=".gitlab-ci.yml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
