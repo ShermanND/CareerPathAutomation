@@ -64,7 +64,6 @@ namespace CareerPathAutomation
             Assert.That(Labels, Is.EqualTo(labels));
         }
 
-
         public void VerifyElementText(By selector, string Text)
         {
             string text = driver.FindElement(selector).Text;
