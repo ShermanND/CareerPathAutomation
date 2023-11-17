@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+
 using System;
 using System.Threading;
 
@@ -28,27 +29,32 @@ namespace CareerPathAutomation
             homemenu_TS.clickonAboutUs();
             string title = driver.Title;
             Assert.AreEqual(TITLE_ABOUT_US, title);
+
         }
 
         [Test(), Order(2)]
         [Category("Home Screen | Open Products")]
         public void test02()
         {
+
             Homemenu_POM homemenu_TS = new Homemenu_POM(driver);
             homemenu_TS.clickonProduct();
             string title = driver.Title;
             Assert.AreEqual(TITLE_PRODUCTS, title);
+
         }
 
         [Test(), Order(3)]
         [Category("Home Screen | Open Locations")]
         public void test03()
         {
+
             Homemenu_POM homemenu_TS = new Homemenu_POM(driver);
             driver.Navigate().Back();
             homemenu_TS.clickonLocations();
             string title = driver.Title;
             Assert.AreEqual(TITLE_LOCATIONS, title);
+
         }
 
         [OneTimeTearDown]
@@ -59,4 +65,6 @@ namespace CareerPathAutomation
 
 
     }
+
 }
+

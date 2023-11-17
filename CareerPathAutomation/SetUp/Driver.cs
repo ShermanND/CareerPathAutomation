@@ -1,0 +1,21 @@
+﻿using OpenQA.Selenium;
+
+namespace CareerPathAutomation 
+{
+    public class Driver
+    {
+        private IWebDriver driver;
+
+        public Driver(IWebDriver driver)
+        {
+            this.driver = driver;
+        }
+
+        // METHODS
+        public void DriverSetUp()
+        {
+            driver.Navigate().GoToUrl("https://parabank.parasoft.com/parabank/index.htm");
+            driver.Manage().Window.FullScreen();
+        }
+    }
+}

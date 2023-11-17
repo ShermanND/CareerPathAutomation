@@ -1,41 +1,61 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using System;
 
-public class RegisterUser_POM
+namespace CareerPathAutomation
 {
-    private IWebDriver driver;
-
-    public RegisterUser_POM(IWebDriver driver)
+    public class RegisterUser_POM
     {
-        this.driver = driver;
-    }
+        private IWebDriver driver;
 
-    // SELECTOR
-    public string link_register = "//a[text()=\"Register\"]";
-    public string table_registerForm = "td[width=\"20%\"] input";
-    public string btn_register = "input[value=\"Register\"]";
-
-    // USER DATA
-    public string userCredential = "user1";
-
-    // METHODS
-    public void RegisterUser(Boolean loginError)
-    {
-        if (loginError == true)
+        public RegisterUser_POM(IWebDriver driver)
         {
-            driver.FindElement(By.XPath(link_register)).Click();
-
-            var registerForm = driver.FindElements(By.CssSelector(table_registerForm));
-
-            foreach (IWebElement element in registerForm)
-            {
-                element.SendKeys(userCredential);
-            }
-
-            driver.FindElement(By.CssSelector(btn_register)).Click();
+            this.driver = driver;
         }
 
-        
+        // SELECTOR
+        public string link_register = "a[href=\"register.htm\"]";
+        public string table_registerForm = "td[width=\"20%\"] input";
+        public string btn_register = "input[value=\"Register\"]";
+        public string span_errorMessage = "span[id=\"customer.username.errors\"]";
+
+        // METHODS
+        public void RegisterUser(bool loginError, By selector, string username, int usernumber)
+        {
+            if (loginError)
+            {
+
+                driver.FindElement(By.CssSelector(link_register)).Click();
+
+                bool elementDisplayed;
+
+                do
+                {
+                    var registerForm = driver.FindElements(By.CssSelector(table_registerForm));
+
+                    foreach (IWebElement element in registerForm)
+                    {
+                        element.Clear();
+                        element.SendKeys(username + usernumber);
+                    }
+
+                    driver.FindElement(By.CssSelector(btn_register)).Click();
+
+                    try
+                    {
+                        elementDisplayed = driver.FindElement(selector).Displayed;
+                    }
+
+                    catch (NoSuchElementException)
+                    {
+                        elementDisplayed = false;
+                    }
+
+                    usernumber++;
+
+                    Assert.That(username+usernumber, Is.LessThanOrEqualTo(username+5));
+
+                } while (elementDisplayed);
+            }
+        }
     }
 }

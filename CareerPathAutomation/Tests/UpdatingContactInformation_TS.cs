@@ -9,24 +9,28 @@ namespace CareerPathAutomation
     [TestFixture]
     public class UpdatingContactInformation
     {
-        IWebDriver driver;
-        UpdatingContactInformation_POM updatingcontactinformationpom;
+        private IWebDriver driver;
+        private UpdatingContactInformation_POM updatingcontactinformationpom;
 
         [OneTimeSetUp]
         public void Setup()
         {
             // Initialize driver setup
             driver = new ChromeDriver();
-            Driver_POM driverpom = new Driver_POM(driver);
-            driverpom.DriverSetUp();
+            Driver driverSetup = new Driver(driver);
+            driverSetup.DriverSetUp();
+
+            // Login user
+            Login_POM loginpom = new Login_POM(driver);
+            Credentials credentials = new Credentials();
+            loginpom.LoginUser(credentials.username, credentials.usernumber);
 
             // Verify login error message is true
-            Login_POM loginpom = new Login_POM(driver);
             Boolean loginError = loginpom.GetElementIsDisplayed(By.CssSelector(loginpom.p_errorMessage));
 
             // Register user if loginError is true
             RegisterUser_POM registeruserpom = new RegisterUser_POM(driver);
-            registeruserpom.RegisterUser(loginError);
+            registeruserpom.RegisterUser(loginError, By.CssSelector(registeruserpom.span_errorMessage), credentials.username, credentials.usernumber);
 
             // Navigate to Update Profile screen
             updatingcontactinformationpom = new UpdatingContactInformation_POM(driver);
@@ -52,7 +56,8 @@ namespace CareerPathAutomation
             // Given I have accessed to Parabank website
             // When I navigate to Update Profile screen
             // Then I verify that screen title text is Update Profile
-            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), updatingcontactinformationpom.updateProfile);
+            Titles titles = new Titles();
+            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), titles.updateProfile);
         }
 
         [Test, Order(3)]
@@ -72,7 +77,8 @@ namespace CareerPathAutomation
             // Given I have accessed to Parabank website
             // When I navigate to Update Profile screen
             // Then I verify that First Name:, Last Name:, Address:, City:, State:, Zip Code:, Phone #: are displayed as labels
-            updatingcontactinformationpom.VerifyWebElementsLabels(By.CssSelector(updatingcontactinformationpom.form_labels), updatingcontactinformationpom.tablelabels);
+            Labels labels = new Labels();
+            updatingcontactinformationpom.VerifyElementsLabels(By.CssSelector(updatingcontactinformationpom.form_labels), labels.updateContactInfo);
         }
 
         [Test, Order(5)]
@@ -85,14 +91,16 @@ namespace CareerPathAutomation
             updatingcontactinformationpom.CleanInputField(By.CssSelector(updatingcontactinformationpom.input_firstName));
 
             // Then I verify that the following message is displayed: "First Name is required."
-            updatingcontactinformationpom.VerifyErrorMessage(By.CssSelector(updatingcontactinformationpom.span_firsNameRequired), updatingcontactinformationpom.error_firstName);
+            Messages messages = new Messages();
+            updatingcontactinformationpom.VerifyErrorMessage(By.CssSelector(updatingcontactinformationpom.span_firsNameRequired), messages.firstNameRequired);
 
             // And I click on Update Profile button
             updatingcontactinformationpom.ClickElement(By.CssSelector(updatingcontactinformationpom.btn_updateProfile));
 
             // And I verify that the changes are not applied
             // And I verify that I remain on the same screen
-            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), updatingcontactinformationpom.updateProfile);
+            Titles titles = new Titles();
+            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), titles.updateProfile);
         }
 
         [Test, Order(6)]
@@ -105,14 +113,16 @@ namespace CareerPathAutomation
             updatingcontactinformationpom.CleanInputField(By.CssSelector(updatingcontactinformationpom.input_lastName));
 
             // Then I verify that the following message is displayed: "Last Name is required."
-            updatingcontactinformationpom.VerifyErrorMessage(By.CssSelector(updatingcontactinformationpom.span_lastNameRequired), updatingcontactinformationpom.error_lastName);
+            Messages messages = new Messages();
+            updatingcontactinformationpom.VerifyErrorMessage(By.CssSelector(updatingcontactinformationpom.span_lastNameRequired), messages.lastNameRequired);
 
             // And I click on Update Profile button
             updatingcontactinformationpom.ClickElement(By.CssSelector(updatingcontactinformationpom.btn_updateProfile));
 
             // And I verify that the changes are not applied
             // And I verify that I remain on the same screen
-            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), updatingcontactinformationpom.updateProfile);
+            Titles titles = new Titles();
+            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), titles.updateProfile);
         }
 
         [Test, Order(7)]
@@ -125,14 +135,16 @@ namespace CareerPathAutomation
             updatingcontactinformationpom.CleanInputField(By.CssSelector(updatingcontactinformationpom.input_address));
 
             // Then I verify that the following message is displayed: "Address is required."
-            updatingcontactinformationpom.VerifyErrorMessage(By.CssSelector(updatingcontactinformationpom.span_addressRequired), updatingcontactinformationpom.error_address);
+            Messages messages = new Messages();
+            updatingcontactinformationpom.VerifyErrorMessage(By.CssSelector(updatingcontactinformationpom.span_addressRequired), messages.addressRequired);
 
             // And I click on Update Profile button
             updatingcontactinformationpom.ClickElement(By.CssSelector(updatingcontactinformationpom.btn_updateProfile));
 
             // And I verify that the changes are not applied
             // And I verify that I remain on the same screen
-            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), updatingcontactinformationpom.updateProfile);
+            Titles titles = new Titles();
+            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), titles.updateProfile);
         }
 
         [Test, Order(8)]
@@ -145,14 +157,16 @@ namespace CareerPathAutomation
             updatingcontactinformationpom.CleanInputField(By.CssSelector(updatingcontactinformationpom.input_city));
 
             // Then I verify that the following message is displayed: "City is required."
-            updatingcontactinformationpom.VerifyErrorMessage(By.CssSelector(updatingcontactinformationpom.span_cityRequired), updatingcontactinformationpom.error_city);
+            Messages messages = new Messages();
+            updatingcontactinformationpom.VerifyErrorMessage(By.CssSelector(updatingcontactinformationpom.span_cityRequired), messages.cityRequired);
 
             // And I click on Update Profile button
             updatingcontactinformationpom.ClickElement(By.CssSelector(updatingcontactinformationpom.btn_updateProfile));
 
             // And I verify that the changes are not applied
             // And I verify that I remain on the same screen
-            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), updatingcontactinformationpom.updateProfile);
+            Titles titles = new Titles();
+            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), titles.updateProfile);
         }
 
         [Test, Order(9)]
@@ -165,14 +179,16 @@ namespace CareerPathAutomation
             updatingcontactinformationpom.CleanInputField(By.CssSelector(updatingcontactinformationpom.input_state));
 
             // Then I verify that the following message is displayed: "State is required."
-            updatingcontactinformationpom.VerifyErrorMessage(By.CssSelector(updatingcontactinformationpom.span_stateRequired), updatingcontactinformationpom.error_state);
+            Messages messages = new Messages();
+            updatingcontactinformationpom.VerifyErrorMessage(By.CssSelector(updatingcontactinformationpom.span_stateRequired), messages.stateRequired);
 
             // And I click on Update Profile button
             updatingcontactinformationpom.ClickElement(By.CssSelector(updatingcontactinformationpom.btn_updateProfile));
 
             // And I verify that the changes are not applied
             // And I verify that I remain on the same screen
-            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), updatingcontactinformationpom.updateProfile);
+            Titles titles = new Titles();
+            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), titles.updateProfile);
         }
 
         [Test, Order(10)]
@@ -185,14 +201,16 @@ namespace CareerPathAutomation
             updatingcontactinformationpom.CleanInputField(By.CssSelector(updatingcontactinformationpom.input_zipCode));
 
             // Then I verify that the following message is displayed: "Zip Code is required."
-            updatingcontactinformationpom.VerifyErrorMessage(By.CssSelector(updatingcontactinformationpom.span_zipCodeRequired), updatingcontactinformationpom.error_zipCode);
+            Messages messages = new Messages();
+            updatingcontactinformationpom.VerifyErrorMessage(By.CssSelector(updatingcontactinformationpom.span_zipCodeRequired), messages.zipCodeRequired);
 
             // And I click on Update Profile button
             updatingcontactinformationpom.ClickElement(By.CssSelector(updatingcontactinformationpom.btn_updateProfile));
 
             // And I verify that the changes are not applied
             // And I verify that I remain on the same screen
-            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), updatingcontactinformationpom.updateProfile);
+            Titles titles = new Titles();
+            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), titles.updateProfile);
         }
 
         [Test, Order(11)]
@@ -206,26 +224,15 @@ namespace CareerPathAutomation
 
             // Then I verify that there is no error message displayed
             updatingcontactinformationpom.VerifyElementIsNotDisplayed(By.CssSelector(updatingcontactinformationpom.span_phoneNumberRequired));
-
-            // And I click on Update Profile button
-            updatingcontactinformationpom.ClickElement(By.CssSelector(updatingcontactinformationpom.btn_updateProfile));
-            Thread.Sleep(2000);
-
-            // Then I verify that the changes are applied
-            // And I verify that I navigate to Profile Updated screen
-            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), updatingcontactinformationpom.profileUpdated);
-
-            // And I verify that the following message is displayed: "Your updated address and phone number have been added to the system."
-            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.p_successfulUpdateMessage), updatingcontactinformationpom.successfulUpdateMessage);
         }
 
         [Test, Order(12)]
-        [Category("Update Contact Info | Update Profile button is displayed")]
+        [Category("Update Contact Info | Update Profile button is visible")]
         public void Test0212()
         {
             // Given I have accessed to Parabank website
             // When I navigate to Update Profile screen
-            // Then I verify that Update Profile button is displayed
+            // Then I verify that Update Profile button is visible
             updatingcontactinformationpom.VerifyElementIsDisplayed(By.CssSelector(updatingcontactinformationpom.btn_updateProfile));
         }
 
@@ -236,7 +243,8 @@ namespace CareerPathAutomation
             // Given I have accessed to Parabank website
             // When I navigate to Update Profile screen
             // Then I verify that Update Profile button value is Update Profile
-            updatingcontactinformationpom.VerifyElementValue(By.CssSelector(updatingcontactinformationpom.btn_updateProfile), updatingcontactinformationpom.updateProfile);
+            Labels labels = new Labels();
+            updatingcontactinformationpom.VerifyElementValue(By.CssSelector(updatingcontactinformationpom.btn_updateProfile), labels.updateProfile);
         }
 
         [Test, Order(14)]
@@ -246,8 +254,9 @@ namespace CareerPathAutomation
             // Given I have accessed to Parabank website
             // And I have navigated to Update Profile screen
             // And I have made some changes on the fields
+            Credentials credentials = new Credentials();
             updatingcontactinformationpom.CleanInputFields(By.CssSelector(updatingcontactinformationpom.form_inputs));
-            updatingcontactinformationpom.FillInInputField(By.CssSelector(updatingcontactinformationpom.form_inputs));
+            updatingcontactinformationpom.FillInInputField(By.CssSelector(updatingcontactinformationpom.form_inputs), credentials.username, credentials.usernumber);
 
             // When I click on Update Profile button
             updatingcontactinformationpom.ClickElement(By.CssSelector(updatingcontactinformationpom.btn_updateProfile));
@@ -255,10 +264,12 @@ namespace CareerPathAutomation
 
             // Then I verify that the changes are applied
             // And I verify that I navigate to Profile Updated screen
-            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), updatingcontactinformationpom.profileUpdated);
+            Titles titles = new Titles();
+            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), titles.profileUpdated);
 
             // And I verify that the following message is displayed: "Your updated address and phone number have been added to the system."
-            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.p_successfulUpdateMessage), updatingcontactinformationpom.successfulUpdateMessage);
+            Messages messages = new Messages();
+            updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.p_successfulUpdateMessage), messages.successfulUpdate);
         }
 
         [OneTimeTearDown]

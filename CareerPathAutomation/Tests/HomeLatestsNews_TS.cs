@@ -8,19 +8,23 @@ namespace CareerPathAutomation
     [TestFixture]
     public class HomeLatestNews
     {
-        IWebDriver driver;
-        HomeLatestNews_POM homelatestnewspom;
+        private IWebDriver driver;
+        private HomeLatestNews_POM homelatestnewspom;
 
         static void Main() { }
 
         [OneTimeSetUp]
         public void Setup()
         {
+
+            // Initialize driver setup
             driver = new ChromeDriver();
-            Driver_POM driverpom = new Driver_POM(driver);
+            Driver driverpom = new Driver(driver);
             driverpom.DriverSetUp();
 
+            // Initialize HomeLatestNews objects
             homelatestnewspom = new HomeLatestNews_POM(driver);
+
             Thread.Sleep(3000);
         }
 
@@ -44,7 +48,8 @@ namespace CareerPathAutomation
             homelatestnewspom.ClickOnLink(By.XPath(homelatestnewspom.link_reOpened));
 
             // Then I verify that Parabank Is Now Re-Opened link redirects to News screen
-            homelatestnewspom.AssertTitle(homelatestnewspom.title_news);
+            Titles titles = new Titles();
+            homelatestnewspom.AssertTitle(By.CssSelector(homelatestnewspom.h1_title), titles.parabankNews);
         }
 
         [Test, Order(3)]
@@ -68,7 +73,8 @@ namespace CareerPathAutomation
             homelatestnewspom.ClickOnLink(By.XPath(homelatestnewspom.link_billPay));
 
             // Then I verify that New Online Bill Pay link redirects to News screen
-            homelatestnewspom.AssertTitle(homelatestnewspom.title_news);
+            Titles titles = new Titles();
+            homelatestnewspom.AssertTitle(By.CssSelector(homelatestnewspom.h1_title), titles.parabankNews);
         }
 
         [Test, Order(5)]
@@ -92,7 +98,8 @@ namespace CareerPathAutomation
             homelatestnewspom.ClickOnLink(By.XPath(homelatestnewspom.link_accountTransfers));
 
             // Then I verify that New Online Account Transfers link redirects to News screen
-            homelatestnewspom.AssertTitle(homelatestnewspom.title_news);
+            Titles titles = new Titles();
+            homelatestnewspom.AssertTitle(By.CssSelector(homelatestnewspom.h1_title) , titles.parabankNews);
         }
 
         [OneTimeTearDown]
