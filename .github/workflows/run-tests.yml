@@ -30,8 +30,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal --logger:trx
-    - name: Upload test results
-      uses: actions/upload-test-results@v2
-      with:
-        test-results: "**/*.trx"
+      run: dotnet test --no-build --verbosity detailed
