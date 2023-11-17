@@ -32,6 +32,7 @@ namespace CareerPathAutomation
             // Then I verify that Home in the Footer is working
             homefooterpom.NavigateAnywhere(homefooterpom.homeFooter);
             string title = driver.Title;
+            //assert
             Assert.AreEqual(homefooterpom.titleHome, title);
         }
 
