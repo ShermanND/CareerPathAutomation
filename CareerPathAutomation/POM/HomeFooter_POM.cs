@@ -33,49 +33,9 @@ public class HomeFooter_POM
     public string titleCustomerCare = "ParaBank | Customer Care";
 
     // METHODS
-    public void NavigateToHomeFooter()
+    public void NavigateAnywhere(String location)
     {
-        driver.FindElement(By.XPath(homeFooter)).Click();
-    }
-
-    public void NavigateToAboutUsFooter()
-    {
-        driver.FindElement(By.XPath(aboutUsFooter)).Click();
-    }
-
-    public void NavigateToServicesFooter()
-    {
-        driver.FindElement(By.XPath(servicesFooter)).Click();
-    }
-
-    public void NavigateToProductsFooter()
-    {
-        driver.FindElement(By.XPath(productsFooter)).Click();
-    }
-
-    public void NavigateToLocationsFooter()
-    {
-        driver.FindElement(By.XPath(locationsFooter)).Click();
-    }
-
-    public void NavigateToForumFooter()
-    {
-        driver.FindElement(By.XPath(forumFooter)).Click();
-    }
-
-    public void NavigateToSiteMapFooter()
-    {
-        driver.FindElement(By.XPath(siteMapFooter)).Click();
-    }
-
-    public void NavigateToContactUsFooter()
-    {
-        driver.FindElement(By.XPath(contactUsFooter)).Click();
-    }
-
-    public void NavigateToParasoftLinkFooter()
-    {
-        driver.FindElement(By.XPath(parasoftLink)).Click();
+        driver.FindElement(By.XPath(location)).Click();
     }
 
 }

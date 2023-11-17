@@ -30,7 +30,7 @@ namespace CareerPathAutomation
             // Given I have accessed to Parabank website
             // When I navigate to Home screen
             // Then I verify that Home in the Footer is working
-            homefooterpom.NavigateToHomeFooter();
+            homefooterpom.NavigateAnywhere(homefooterpom.homeFooter);
             string title = driver.Title;
             Assert.AreEqual(homefooterpom.titleHome, title);
         }
@@ -42,7 +42,7 @@ namespace CareerPathAutomation
             // Given I have accessed to Parabank website
             // When I navigate to Home screen
             // Then I verify that About Us in the Footer is working
-            homefooterpom.NavigateToAboutUsFooter();
+            homefooterpom.NavigateAnywhere(homefooterpom.aboutUsFooter);
             string title = driver.Title;
             Assert.AreEqual(homefooterpom.titleAboutUs, title);
         }
@@ -54,7 +54,7 @@ namespace CareerPathAutomation
             // Given I have accessed to Parabank website
             // When I navigate to Home screen
             // Then I verify that Services in the Footer is working
-            homefooterpom.NavigateToServicesFooter();
+            homefooterpom.NavigateAnywhere(homefooterpom.servicesFooter);
             string title = driver.Title;
             Assert.AreEqual(homefooterpom.titleServices, title);
         }
@@ -66,7 +66,7 @@ namespace CareerPathAutomation
             // Given I have accessed to Parabank website
             // When I navigate to Home screen
             // Then I verify that Products in the Footer is working
-            homefooterpom.NavigateToProductsFooter();
+            homefooterpom.NavigateAnywhere(homefooterpom.productsFooter);
             driver.Navigate().Back();
             string title = driver.Title;
             Assert.AreEqual(homefooterpom.titleServices, title);
@@ -79,7 +79,7 @@ namespace CareerPathAutomation
             // Given I have accessed to Parabank website
             // When I navigate to Home screen
             // Then I verify that Locations in the Footer is working
-            homefooterpom.NavigateToLocationsFooter();
+            homefooterpom.NavigateAnywhere(homefooterpom.locationsFooter);
             driver.Navigate().Back();
             string title = driver.Title;
             Assert.AreEqual(homefooterpom.titleServices, title);
@@ -92,7 +92,7 @@ namespace CareerPathAutomation
             // Given I have accessed to Parabank website
             // When I navigate to Home screen
             // Then I verify that Forum in the Footer is working
-            homefooterpom.NavigateToForumFooter();
+            homefooterpom.NavigateAnywhere(homefooterpom.forumFooter);
             driver.Navigate().Back();
             string title = driver.Title;
             Assert.AreEqual(homefooterpom.titleServices, title);
@@ -105,7 +105,7 @@ namespace CareerPathAutomation
             // Given I have accessed to Parabank website
             // When I navigate to Home screen
             // Then I verify that Site Map in the Footer is working
-            homefooterpom.NavigateToSiteMapFooter();
+            homefooterpom.NavigateAnywhere(homefooterpom.siteMapFooter);
             string title = driver.Title;
             Assert.AreEqual(homefooterpom.titleSiteMap, title);
         }
@@ -117,7 +117,7 @@ namespace CareerPathAutomation
             // Given I have accessed to Parabank website
             // When I navigate to Home screen
             // Then I verify that Contact Us in the Footer is working
-            homefooterpom.NavigateToContactUsFooter();
+            homefooterpom.NavigateAnywhere(homefooterpom.contactUsFooter);
             string title = driver.Title;
             Assert.AreEqual(homefooterpom.titleCustomerCare, title);
         }
@@ -129,7 +129,7 @@ namespace CareerPathAutomation
             // Given I have accessed to Parabank website
             // When I navigate to Home screen
             // Then I verify that the ParaSoft Link below the Footer is working
-            homefooterpom.NavigateToParasoftLinkFooter();
+            homefooterpom.NavigateAnywhere(homefooterpom.parasoftLink);
             string title = driver.Title;
             Assert.AreEqual(homefooterpom.titleCustomerCare, title);
         }
