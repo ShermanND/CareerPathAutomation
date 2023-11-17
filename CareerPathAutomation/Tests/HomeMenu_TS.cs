@@ -2,66 +2,59 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
+using System;
+using System.Threading;
+
+
 namespace CareerPathAutomation
 {
     [TestFixture]
-    public class HomeMenu
+    public class HomeMenu_TS
     {
-        IWebDriver driver;
-        HomeMenu_POM homemenu;
-        Titles titles;
+        IWebDriver driver = new ChromeDriver();
+        const string TITLE_ABOUT_US = "ParaBank | About Us";
+        const string TITLE_PRODUCTS = "Automated Software Testing Tool Suite | Parasoft";
+        const string TITLE_LOCATIONS = "Automated Software Testing Solutions For Every Testing Need";
 
         [OneTimeSetUp]
         public void Setup()
         {
-            // Initialize driver setup
-            driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://parabank.parasoft.com/parabank/index.htm");
-            driver.Manage().Window.FullScreen();
-
-            // Initialize homemenu and titles objects
-            homemenu = new HomeMenu_POM(driver);
-            titles = new Titles();
+            //driver.Manage().Window.FullScreen();
         }
-        [Test(), Order(1)]
+        [Test (), Order(1)]
         [Category("Home Screen | Open About Us")]
-        public void Test01()
-        {
-            // Given I have accessed to Parabank website
-            // When I navigate to About Us screen
-            homemenu.clickonAboutUs();
-
-            // Then I verify that About Us is displayed as screen title
+        public void Test01() {
+            Homemenu_POM homemenu_TS = new Homemenu_POM(driver);
+            homemenu_TS.clickonAboutUs();
             string title = driver.Title;
-            Assert.AreEqual(titles.aboutUs, title);
+            Assert.AreEqual(TITLE_ABOUT_US, title);
+
         }
 
         [Test(), Order(2)]
         [Category("Home Screen | Open Products")]
         public void test02()
         {
-            // Given I have accessed to Parabank website
-            // When I navigate to Products screen
-            homemenu.clickonProduct();
 
-            // Then I verify that "Automated Software Testing Tool Suite | Parasoft" is displayed as screen title
+            Homemenu_POM homemenu_TS = new Homemenu_POM(driver);
+            homemenu_TS.clickonProduct();
             string title = driver.Title;
-            Assert.AreEqual(titles.products, title);
+            Assert.AreEqual(TITLE_PRODUCTS, title);
+
         }
 
         [Test(), Order(3)]
         [Category("Home Screen | Open Locations")]
         public void test03()
         {
-            // Given I have accessed to Parabank website
+
+            Homemenu_POM homemenu_TS = new Homemenu_POM(driver);
             driver.Navigate().Back();
-
-            // When I navigate to Locations screen
-            homemenu.clickonLocations();
-
-            // Then I verify that "Automated Software Testing Solutions For Every Testing Need" is displayed as screen title
+            homemenu_TS.clickonLocations();
             string title = driver.Title;
-            Assert.AreEqual(titles.locations, title);
+            Assert.AreEqual(TITLE_LOCATIONS, title);
+
         }
 
         [OneTimeTearDown]
@@ -72,4 +65,6 @@ namespace CareerPathAutomation
 
 
     }
+
 }
+
