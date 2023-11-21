@@ -1,19 +1,22 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
-- main
+  branches:
+    include:
+      - master  # o el nombre de tu rama principal
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'windows-latest'  # o la imagen que prefieras
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.0.100'  # o la versión que estés utilizando
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- script: dotnet restore
+  displayName: 'Restore packages'
+
+- script: dotnet build --configuration Release
+  displayName: 'Build'
+
+- script: dotnet test --configuration Release
+  displayName: 'Run tests'
