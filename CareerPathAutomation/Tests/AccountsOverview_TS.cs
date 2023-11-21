@@ -51,7 +51,7 @@ namespace CareerPathAutomation
 
         [Test, Order(2)]
         [Category("Accounts Overview | Screen title is Accounts Overview")]
-            public void Test0202()
+        public void Test0202()
         {
             // Given I have accessed to Parabank website
             // When I navigate to Accounts Overview screen

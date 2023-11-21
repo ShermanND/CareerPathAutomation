@@ -99,7 +99,7 @@ namespace CareerPathAutomation
 
             // Then I verify that New Online Account Transfers link redirects to News screen
             Titles titles = new Titles();
-            homelatestnewspom.AssertTitle(By.CssSelector(homelatestnewspom.h1_title) , titles.parabankNews);
+            homelatestnewspom.AssertTitle(By.CssSelector(homelatestnewspom.h1_title), titles.parabankNews);
         }
 
         [OneTimeTearDown]

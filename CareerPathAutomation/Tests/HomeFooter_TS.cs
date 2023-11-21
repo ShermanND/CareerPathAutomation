@@ -9,17 +9,17 @@ namespace CareerPathAutomation
     public class HomeFooter
 	{
         IWebDriver driver;
-        HomeFooter_POM homefooterpom;
-
-       // static void Main() { }
+        global::HomeFooter_POM homefooterpom;
 
         [OneTimeSetUp]
         public void Setup()
         {
+            // Initialize driver setup
             driver = new ChromeDriver();
-            Driver_POM driverpom = new Driver_POM(driver);
+            Driver driverpom = new Driver(driver);
             driverpom.DriverSetUp();
-            homefooterpom = new HomeFooter_POM(driver);
+
+            homefooterpom = new global::HomeFooter_POM(driver);
             Thread.Sleep(3000);
         }
 
