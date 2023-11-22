@@ -1,29 +1,39 @@
+# Configuración del trigger: se ejecutará cuando haya cambios en la rama master
 trigger:
   branches:
     include:
       - master  # o el nombre de tu rama principal
 
+# Configuración de la máquina virtual que ejecutará el pipeline
 pool:
   vmImage: 'windows-latest'  # o la imagen que prefieras
 
+# Definición de variables que pueden ser utilizadas en otros pasos del pipeline
+variables:
+  buildConfiguration: 'Release'
+
+# Pasos del pipeline
 steps:
-- task: UseDotNet@2
-  inputs:
-    packageType: 'sdk'
-    version: '8.0.100'  # o la versión que estés utilizando
+  # Paso 1: Especificar la versión del SDK de .NET que se utilizará
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '4.x'
 
-- script: dotnet restore
-  displayName: 'Restore packages'
+  # Paso 2: Restaurar los paquetes NuGet necesarios para el proyecto
+  - task: NuGetCommand@2
+    displayName: 'Restore packages'
+    inputs:
+      command: 'restore'
+      restoreSolution: '**/*.sln'
+      feedsToUse: 'select'
 
-- task: NuGetCommand@2
-  displayName: 'Restore packages'
-  inputs:
-    command: 'restore'
-    restoreSolution: '**/*.sln'
-    feedsToUse: 'select'
+  # Paso 3: Compilar el proyecto
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'build'
 
-- script: dotnet build --configuration Release
-  displayName: 'Build'
-
-- script: dotnet test --configuration Release
-  displayName: 'Run tests'
+  # Paso 4: Ejecutar las pruebas del proyecto
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'test'
