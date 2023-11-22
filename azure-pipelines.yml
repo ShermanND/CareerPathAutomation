@@ -15,17 +15,27 @@ variables:
 # Pasos del pipeline
 steps:
   # Paso 1: Restaurar los paquetes NuGet necesarios para el proyecto
-  - task: DotNetCoreCLI@2
+  - task: NuGetCommand@2
+    displayName: 'Restore NuGet packages'
     inputs:
       command: 'restore'
+      restoreSolution: '**/*.sln'
       feedsToUse: 'select'
 
   # Paso 2: Configurar MSBuild para proyectos .NET Framework
-  - task: DotNetCoreCLI@2
+  - task: MSBuild@1
+    displayName: 'Build project'
     inputs:
-      command: 'build'
+      solution: '**/*.sln'
+      msbuildArchitecture: 'x64'  # o 'x86' según tus necesidades
+      configuration: '$(buildConfiguration)'
 
   # Paso 3: Ejecutar las pruebas del proyecto (ajusta según tu configuración)
   - task: DotNetCoreCLI@2
+    displayName: 'Run NUnit Tests'
     inputs:
       command: 'test'
+      projects: '**/*.csproj'  # Incluye todos los proyectos, ajusta según tu estructura
+      arguments: '--configuration Release --logger trx;LogFileName=testResults.trx'
+      nobuild: true
+      testRunTitle: 'NUnit Tests'
