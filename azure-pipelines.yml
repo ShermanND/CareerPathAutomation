@@ -36,6 +36,6 @@ steps:
     inputs:
       command: 'test'
       projects: '**/*.csproj'  # Incluye todos los proyectos, ajusta según tu estructura
-      arguments: '--configuration Release'
+      arguments: '--configuration Release --logger trx;LogFileName=testResults.trx'
       nobuild: true
       testRunTitle: 'NUnit Tests'
