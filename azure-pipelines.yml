@@ -18,7 +18,9 @@ steps:
   - task: UseDotNet@2
     displayName: 'Use .NET Framework SDK'
     inputs:
+      packageType: 'sdk'
       version: '4.x'
+      installationPath: $(Agent.ToolsDirectory)/dotnet
 
   # Paso 2: Restaurar los paquetes NuGet necesarios para el proyecto
   - task: NuGetCommand@2
