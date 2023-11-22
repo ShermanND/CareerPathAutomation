@@ -36,4 +36,4 @@ steps:
     inputs:
       testSelector: 'testAssemblies'
       testAssemblyVer2: |
-        **\bin\$(buildConfiguration)\*TS*.dll
+        **\*TS*.dll
