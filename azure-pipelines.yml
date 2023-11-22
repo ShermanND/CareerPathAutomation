@@ -16,13 +16,14 @@ variables:
 steps:
   # Paso 1: Especificar la versión del SDK de .NET que se utilizará
   - task: UseDotNet@2
+    displayName: 'Specify .NET SDK version'
     inputs:
       packageType: 'sdk'
       version: '8.x'
 
   # Paso 2: Restaurar los paquetes NuGet necesarios para el proyecto
   - task: NuGetCommand@2
-    displayName: 'Restore packages'
+    displayName: 'Restore NuGet packages'
     inputs:
       command: 'restore'
       restoreSolution: '**/*.sln'
@@ -30,10 +31,12 @@ steps:
 
   # Paso 3: Compilar el proyecto
   - task: DotNetCoreCLI@2
+    displayName: 'Build project'
     inputs:
       command: 'build'
 
   # Paso 4: Ejecutar las pruebas del proyecto
   - task: DotNetCoreCLI@2
+    displayName: 'Run project tests'
     inputs:
       command: 'test'
