@@ -15,12 +15,12 @@ variables:
 # Pasos del pipeline
 steps:
   # Paso 1: Configurar MSBuild para proyectos .NET Framework
-  - task: UseDotNet@2
-    displayName: 'Use .NET Framework SDK'
+  - task: MSBuild@1
+    displayName: 'Build project'
     inputs:
-      packageType: 'sdk'
-      version: '4.x'
-      installationPath: $(Agent.ToolsDirectory)/dotnet
+      solution: '**/*.sln'
+      msbuildArchitecture: 'x64'  # o 'x86' según tus necesidades
+      configuration: '$(buildConfiguration)'
 
   # Paso 2: Restaurar los paquetes NuGet necesarios para el proyecto
   - task: NuGetCommand@2
