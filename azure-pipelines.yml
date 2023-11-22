@@ -23,19 +23,11 @@ steps:
       feedsToUse: 'select'
 
   # Paso 2: Configurar MSBuild para proyectos .NET Framework
-  - task: MSBuild@1
-    displayName: 'Build project'
+  - task: DotNetCoreCLI@2
     inputs:
-      solution: '**/*.sln'
-      msbuildArchitecture: 'x64'  # o 'x86' según tus necesidades
-      configuration: '$(buildConfiguration)'
+      command: 'build'
 
   # Paso 3: Ejecutar las pruebas del proyecto (ajusta según tu configuración)
   - task: DotNetCoreCLI@2
-    displayName: 'Run NUnit Tests'
     inputs:
       command: 'test'
-      projects: '**/*.csproj'  # Incluye todos los proyectos, ajusta según tu estructura
-      arguments: '--configuration Release --logger trx;LogFileName=testResults.trx'
-      nobuild: true
-      testRunTitle: 'NUnit Tests'
