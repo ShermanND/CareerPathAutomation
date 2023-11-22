@@ -31,9 +31,11 @@ steps:
       configuration: '$(buildConfiguration)'
 
   # Paso 3: Ejecutar las pruebas del proyecto (ajusta según tu configuración)
-  - task: VSTest@2
-    displayName: 'Run project tests'
+  - task: DotNetCoreCLI@2
+    displayName: 'Run NUnit Tests'
     inputs:
-      testSelector: 'testAssemblies'
-      testAssemblyVer2: |
-        **\*_TS.cs
+      command: 'test'
+      projects: '**/*.csproj'  # Incluye todos los proyectos, ajusta según tu estructura
+      arguments: '--configuration Release'
+      nobuild: true
+      testRunTitle: 'NUnit Tests'
