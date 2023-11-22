@@ -1,0 +1,22 @@
+trigger:
+  branches:
+    include:
+      - master  # o el nombre de tu rama principal
+
+pool:
+  vmImage: 'windows-latest'  # o la imagen que prefieras
+
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.0.100'  # o la versión que estés utilizando
+
+- script: dotnet restore
+  displayName: 'Restore packages'
+
+- script: dotnet build --configuration Release
+  displayName: 'Build'
+
+- script: dotnet test --configuration Release
+  displayName: 'Run tests'
