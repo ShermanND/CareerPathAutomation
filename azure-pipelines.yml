@@ -21,7 +21,7 @@ steps:
       command: 'restore'
       restoreSolution: '**/*.sln'
       feedsToUse: 'select'
-      
+
   # Paso 2: Configurar MSBuild para proyectos .NET Framework
   - task: MSBuild@1
     displayName: 'Build project'
@@ -30,14 +30,7 @@ steps:
       msbuildArchitecture: 'x64'  # o 'x86' según tus necesidades
       configuration: '$(buildConfiguration)'
 
-  # Paso 3: Compilar el proyecto utilizando MSBuild
-  - task: MSBuild@1
-    displayName: 'Build project'
-    inputs:
-      solution: '**/*.sln'
-      configuration: '$(buildConfiguration)'
-
-  # Paso 4: Ejecutar las pruebas del proyecto (ajusta según tu configuración)
+  # Paso 3: Ejecutar las pruebas del proyecto (ajusta según tu configuración)
   - task: VSTest@2
     displayName: 'Run project tests'
     inputs:
