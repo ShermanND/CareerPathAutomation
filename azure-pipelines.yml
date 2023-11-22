@@ -15,11 +15,9 @@ variables:
 # Pasos del pipeline
 steps:
   # Paso 1: Restaurar los paquetes NuGet necesarios para el proyecto
-  - task: NuGetCommand@2
-    displayName: 'Restore NuGet packages'
+  - task: DotNetCoreCLI@2
     inputs:
       command: 'restore'
-      restoreSolution: '**/*.sln'
       feedsToUse: 'select'
 
   # Paso 2: Configurar MSBuild para proyectos .NET Framework
