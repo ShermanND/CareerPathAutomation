@@ -19,7 +19,7 @@ jobs:
   - script: dotnet restore
     displayName: 'Restore NuGet Packages'
 
-  - script: dotnet build --configuration $(BuildConfiguration)
+  - script: dotnet build --configuration Debug
     displayName: 'Build Solution'
 
   - task: VSTest@2
@@ -27,8 +27,8 @@ jobs:
     inputs:
       testSelector: 'testAssemblies'
       testAssemblyVer2: |
-        **\bin\$(BuildConfiguration)\*_TS.dll
+        **\bin\Debug\*_TS.dll
       searchFolder: '$(System.DefaultWorkingDirectory)'
       codeCoverageEnabled: true
-      platform: '$(BuildPlatform)'
-      configuration: '$(BuildConfiguration)'
+      platform: 'Any CPU'
+      configuration: 'Debug'
