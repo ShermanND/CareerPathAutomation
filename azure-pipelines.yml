@@ -1,6 +1,6 @@
 # Definición del evento que desencadenará la ejecución del pipeline.
 trigger:
-- EMILIANO2
+- EMILIANO
 
 # Configuración del entorno de ejecución. Se utiliza la imagen de Windows más reciente.
 pool:
