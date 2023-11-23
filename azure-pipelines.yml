@@ -27,6 +27,7 @@ jobs:
     displayName: 'Restore'
     inputs:
       command: 'restore'
+      feedsToUse: 'select'
 
   # Paso para compilar el proyecto.
   - task: DotNetCoreCLI@2
