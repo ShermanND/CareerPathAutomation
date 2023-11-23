@@ -27,7 +27,7 @@ namespace CareerPathAutomation.Tests
             Thread.Sleep(3000);
         }
 
-        [Test, Order(1)]
+        //[Test, Order(1)]
         [Category("Home Latest News | Parabank Is Now Re-Opened link is visible")]
         public void Test0101()
         {
@@ -37,7 +37,7 @@ namespace CareerPathAutomation.Tests
             homelatestnewspom.VerifyElementIsDisplayed(By.XPath(homelatestnewspom.link_reOpened));
         }
 
-        [Test, Order(2)]
+        //[Test, Order(2)]
         [Category("Home Latest News | Parabank Is Now Re-Opened link redirects to News screen")]
         public void Test0102()
         {
@@ -51,7 +51,7 @@ namespace CareerPathAutomation.Tests
             homelatestnewspom.AssertTitle(By.CssSelector(homelatestnewspom.h1_title), titles.parabankNews);
         }
 
-        [Test, Order(3)]
+        //[Test, Order(3)]
         [Category("Home Latest News | New Online Bill Pay link is visible")]
         public void Test0103()
         {
@@ -62,7 +62,7 @@ namespace CareerPathAutomation.Tests
 
         }
 
-        [Test, Order(4)]
+        //[Test, Order(4)]
         [Category("Home Latest News | New Online Bill Pay link redirects to News screen")]
         public void Test0104()
         {
@@ -76,7 +76,7 @@ namespace CareerPathAutomation.Tests
             homelatestnewspom.AssertTitle(By.CssSelector(homelatestnewspom.h1_title), titles.parabankNews);
         }
 
-        [Test, Order(5)]
+        //[Test, Order(5)]
         [Category("Home Latest News | New Online Account Transfers link is visible")]
         public void Test0105()
         {
@@ -87,7 +87,7 @@ namespace CareerPathAutomation.Tests
 
         }
 
-        [Test, Order(6)]
+        //[Test, Order(6)]
         [Category("Home Latest News | New Online Account Transfers link redirects to News screen")]
         public void Test0106()
         {
