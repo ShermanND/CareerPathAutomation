@@ -29,6 +29,16 @@ jobs:
       command: 'restore'
       feedsToUse: 'select'
 
+  - task: NuGetToolInstaller@1
+    inputs:
+      versionSpec: '5.8'
+
+  - task: NuGetCommand@2
+    inputs:
+      command: 'restore'
+      restoreSolution: '**/*.sln'
+      feedsToUse: 'select'
+
   # Paso para compilar el proyecto.
   - task: DotNetCoreCLI@2
     displayName: 'Build'
