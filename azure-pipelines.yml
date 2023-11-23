@@ -5,33 +5,22 @@ pool:
   vmImage: 'windows-latest'
 
 jobs:
-- job: RunTests
-  displayName: 'Run Tests'
+- job: BuildAndTest
+  displayName: 'Build and Test'
   steps:
   - checkout: self
-
   - task: UseDotNet@2
-    displayName: 'Use .NET SDK'
     inputs:
-      version: '3.x'
-      installationPath: $(Agent.ToolsDirectory)/dotnet
-
-  - task: NuGetCommand@2
+      packageType: 'sdk'
+      version: '8.x'
+  - task: DotNetCoreCLI@2
     inputs:
       command: 'restore'
-      restoreSolution: '**/*.sln'
-      feedsToUse: 'select'
 
-  - script: dotnet build --configuration Debug
-    displayName: 'Build Solution'
-
-  - task: VSTest@2
-    displayName: 'Run Tests'
+  - task: DotNetCoreCLI@2
     inputs:
-      testSelector: 'testAssemblies'
-      testAssemblyVer2: |
-        **\bin\Debug\*_TS.cs
-      searchFolder: '$(System.DefaultWorkingDirectory)'
-      codeCoverageEnabled: true
-      platform: 'Any CPU'
-      configuration: 'Debug'
+      command: 'build'
+
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'test'
