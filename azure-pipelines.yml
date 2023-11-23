@@ -1,31 +1,40 @@
+# Definición del evento que desencadenará la ejecución del pipeline.
 trigger:
 - EMILIANO2
 
+# Configuración del entorno de ejecución. Se utiliza la imagen de Windows más reciente.
 pool:
   vmImage: 'windows-latest'
 
+# Definición de los trabajos que se ejecutarán en el pipeline.
 jobs:
 - job: BuildAndTest
-  displayName: 'Build and Test'
+  displayName: 'Build and Test'  # Nombre descriptivo del trabajo.
+
+  # Paso para obtener el código fuente del repositorio.
   steps:
   - checkout: self
 
+  # Paso para configurar el uso de una versión específica del SDK de .NET.
   - task: UseDotNet@2
     displayName: 'Use .NET SDK 8.x'
     inputs:
       packageType: 'sdk'
       version: '8.x'
 
+  # Paso para restaurar las dependencias del proyecto.
   - task: DotNetCoreCLI@2
     displayName: 'Restore'
     inputs:
       command: 'restore'
 
+  # Paso para compilar el proyecto.
   - task: DotNetCoreCLI@2
     displayName: 'Build'
     inputs:
       command: 'build'
 
+  # Paso para ejecutar las pruebas del proyecto.
   - task: DotNetCoreCLI@2
     displayName: 'Run Tests'
     inputs:
