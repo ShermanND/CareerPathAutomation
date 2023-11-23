@@ -39,7 +39,7 @@ namespace CareerPathAutomation.Tests
             Thread.Sleep(3000);
         }
 
-        //[Test, Order(1)]
+        [Test, Order(1)]
         [Category("Update Contact Info | Update Profile screen title is visible")]
         public void Test0201()
         {
@@ -49,7 +49,7 @@ namespace CareerPathAutomation.Tests
             updatingcontactinformationpom.VerifyElementIsDisplayed(By.CssSelector(updatingcontactinformationpom.h1_title));
         }
 
-        //[Test, Order(2)]
+        [Test, Order(2)]
         [Category("Update Contact Info | Screen title text is Update Profile")]
         public void Test0202()
         {
@@ -60,7 +60,7 @@ namespace CareerPathAutomation.Tests
             updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), titles.updateProfile);
         }
 
-        //[Test, Order(3)]
+        [Test, Order(3)]
         [Category("Update Contact Info | First Name:, Last Name:, Address:, City:, State:, Zip Code:, Phone #: labels are visible")]
         public void Test0203()
         {
@@ -70,7 +70,7 @@ namespace CareerPathAutomation.Tests
             updatingcontactinformationpom.VerifyElementsAreDisplayed(By.CssSelector(updatingcontactinformationpom.form_labels));
         }
 
-        //[Test, Order(4)]
+        [Test, Order(4)]
         [Category("Update Contact Info | First Name:, Last Name:, Address:, City:, State:, Zip Code:, Phone #: are displayed as labels")]
         public void Test0204()
         {
@@ -81,7 +81,7 @@ namespace CareerPathAutomation.Tests
             updatingcontactinformationpom.VerifyElementsLabels(By.CssSelector(updatingcontactinformationpom.form_labels), labels.updateContactInfo);
         }
 
-        //[Test, Order(5)]
+        [Test, Order(5)]
         [Category("Update Contact Info | First Name is a required field")]
         public void Test0205()
         {
@@ -103,7 +103,7 @@ namespace CareerPathAutomation.Tests
             updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), titles.updateProfile);
         }
 
-        //[Test, Order(6)]
+        [Test, Order(6)]
         [Category("Update Contact Info | Last Name is a required field")]
         public void Test0206()
         {
@@ -125,7 +125,7 @@ namespace CareerPathAutomation.Tests
             updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), titles.updateProfile);
         }
 
-        //[Test, Order(7)]
+        [Test, Order(7)]
         [Category("Update Contact Info | Address is a required field")]
         public void Test0207()
         {
@@ -147,7 +147,7 @@ namespace CareerPathAutomation.Tests
             updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), titles.updateProfile);
         }
 
-        //[Test, Order(8)]
+        [Test, Order(8)]
         [Category("Update Contact Info | City is a required field")]
         public void Test0208()
         {
@@ -169,7 +169,7 @@ namespace CareerPathAutomation.Tests
             updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), titles.updateProfile);
         }
 
-        //[Test, Order(9)]
+        [Test, Order(9)]
         [Category("Update Contact Info | State is a required field")]
         public void Test0209()
         {
@@ -191,7 +191,7 @@ namespace CareerPathAutomation.Tests
             updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), titles.updateProfile);
         }
 
-        //[Test, Order(10)]
+        [Test, Order(10)]
         [Category("Update Contact Info | Zip Code is a required field")]
         public void Test0210()
         {
@@ -213,7 +213,7 @@ namespace CareerPathAutomation.Tests
             updatingcontactinformationpom.VerifyElementText(By.CssSelector(updatingcontactinformationpom.h1_title), titles.updateProfile);
         }
 
-        //[Test, Order(11)]
+        [Test, Order(11)]
         [Category("Update Contact Info | Phone #: is not a required field")]
         public void Test0211()
         {
@@ -226,7 +226,7 @@ namespace CareerPathAutomation.Tests
             updatingcontactinformationpom.VerifyElementIsNotDisplayed(By.CssSelector(updatingcontactinformationpom.span_phoneNumberRequired));
         }
 
-        //[Test, Order(12)]
+        [Test, Order(12)]
         [Category("Update Contact Info | Update Profile button is visible")]
         public void Test0212()
         {
@@ -236,7 +236,7 @@ namespace CareerPathAutomation.Tests
             updatingcontactinformationpom.VerifyElementIsDisplayed(By.CssSelector(updatingcontactinformationpom.btn_updateProfile));
         }
 
-        //[Test, Order(13)]
+        [Test, Order(13)]
         [Category("Update Contact Info | Update Profile button value is Update Profile")]
         public void Test0213()
         {
@@ -247,7 +247,7 @@ namespace CareerPathAutomation.Tests
             updatingcontactinformationpom.VerifyElementValue(By.CssSelector(updatingcontactinformationpom.btn_updateProfile), labels.updateProfile);
         }
 
-        //[Test, Order(14)]
+        [Test, Order(14)]
         [Category("Update Contact Info | User is able to update contact information")]
         public void Test0214()
         {
