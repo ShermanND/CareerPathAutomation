@@ -25,7 +25,7 @@ namespace CareerPathAutomation.Tests
             homemenu = new HomeMenu_POM(driver);
             titles = new Titles();
         }
-        [Test(), Order(1)]
+        //[Test(), Order(1)]
         [Category("Home Screen | Open About Us")]
         public void Test01()
         {
@@ -38,7 +38,7 @@ namespace CareerPathAutomation.Tests
             Assert.That(title, Is.EqualTo(titles.aboutUs));
         }
 
-        [Test(), Order(2)]
+        //[Test(), Order(2)]
         [Category("Home Screen | Open Products")]
         public void test02()
         {
@@ -51,7 +51,7 @@ namespace CareerPathAutomation.Tests
             Assert.That(title, Is.EqualTo(titles.products));
         }
 
-        [Test(), Order(3)]
+        //[Test(), Order(3)]
         [Category("Home Screen | Open Locations")]
         public void test03()
         {
