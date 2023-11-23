@@ -33,7 +33,7 @@ jobs:
     displayName: 'Build'
     inputs:
       command: 'build'
-
+      
   # Paso para ejecutar las pruebas del proyecto.
   - task: DotNetCoreCLI@2
     displayName: 'Run Tests'
