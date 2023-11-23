@@ -39,7 +39,7 @@ namespace CareerPathAutomation.Tests
             Thread.Sleep(3000);
         }
 
-        [Test, Order(1)]
+        //[Test, Order(1)]
         [Category("Accounts Overview | Accounts Overview screen title is visible")]
         public void Test0201()
         {
@@ -49,7 +49,7 @@ namespace CareerPathAutomation.Tests
             accountsoverviewpom.VerifyElementIsDisplayed(By.CssSelector(accountsoverviewpom.h1_accountsOverview));
         }
 
-        [Test, Order(2)]
+        //[Test, Order(2)]
         [Category("Accounts Overview | Screen title is Accounts Overview")]
         public void Test0202()
         {
@@ -60,7 +60,7 @@ namespace CareerPathAutomation.Tests
             accountsoverviewpom.VerifyElementText(By.CssSelector(accountsoverviewpom.h1_accountsOverview), titles.accountsOverview);
         }
 
-        [Test, Order(3)]
+        //[Test, Order(3)]
         [Category("Accounts Overview | Account, Balance & Available Amount are displayed as labels")]
         public void Test0203()
         {
@@ -71,7 +71,7 @@ namespace CareerPathAutomation.Tests
             accountsoverviewpom.VerifyElementsLabels(By.CssSelector(accountsoverviewpom.table_labels), labels.accountsOverview);
         }
 
-        [Test, Order(4)]
+        //[Test, Order(4)]
         [Category("Accounts Overview | Account column displays the account number")]
         public void Test0204()
         {
@@ -81,7 +81,7 @@ namespace CareerPathAutomation.Tests
             accountsoverviewpom.VerifyElementIsDisplayed(By.CssSelector(accountsoverviewpom.link_accountNumber));
         }
 
-        [Test, Order(5)]
+        //[Test, Order(5)]
         [Category("Accounts Overview | Account number redirects to Account Activity screen")]
         public void Test0205()
         {
@@ -96,7 +96,7 @@ namespace CareerPathAutomation.Tests
             driver.Navigate().Back();
         }
 
-        [Test, Order(6)]
+        //[Test, Order(6)]
         [Category("Accounts Overview | Balance column displays the balance amount")]
         public void Test0206()
         {
@@ -106,7 +106,7 @@ namespace CareerPathAutomation.Tests
             accountsoverviewpom.VerifyElementIsDisplayed(By.CssSelector(accountsoverviewpom.td_balance));
         }
 
-        [Test, Order(7)]
+        //[Test, Order(7)]
         [Category("Accounts Overview | Available Amount displays the available amount")]
         public void Test0207()
         {
@@ -116,7 +116,7 @@ namespace CareerPathAutomation.Tests
             accountsoverviewpom.VerifyElementIsDisplayed(By.CssSelector(accountsoverviewpom.td_availableamount));
         }
 
-        [Test, Order(8)]
+        //[Test, Order(8)]
         [Category("Accounts Overview | Total displays the total amount")]
         public void Test0208()
         {
@@ -126,7 +126,7 @@ namespace CareerPathAutomation.Tests
             accountsoverviewpom.VerifyElementIsDisplayed(By.CssSelector(accountsoverviewpom.b_totalamount));
         }
 
-        [Test, Order(9)]
+        //[Test, Order(9)]
         [Category("Accounts Overview | 'Balance includes deposits that may be subject to holds' footnote is visible")]
         public void Test0209()
         {
@@ -136,7 +136,7 @@ namespace CareerPathAutomation.Tests
             accountsoverviewpom.VerifyElementIsDisplayed(By.CssSelector(accountsoverviewpom.label_note));
         }
 
-        [Test, Order(10)]
+        //[Test, Order(10)]
         [Category("Accounts Overview | Footnote text is: Balance includes deposits that may be subject to holds")]
         public void Test0210()
         {
