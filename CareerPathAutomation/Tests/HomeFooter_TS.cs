@@ -17,7 +17,7 @@ namespace CareerPathAutomation
         public void Setup()
         {
             driver = new ChromeDriver();
-            Driver_POM driverpom = new Driver_POM(driver);
+            Driver driverpom = new Driver(driver);
             driverpom.DriverSetUp();
             homefooterpom = new HomeFooter_POM(driver);
             Thread.Sleep(3000);

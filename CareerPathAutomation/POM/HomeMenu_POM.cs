@@ -1,11 +1,16 @@
 ﻿using OpenQA.Selenium;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CareerPathAutomation
 {
-    public class HomeMenu_POM
+    public class Homemenu_POM
     {
         private IWebDriver driver;
-        public HomeMenu_POM(IWebDriver driver)
+        public Homemenu_POM(IWebDriver driver)
         {
             this.driver = driver;
         }
