@@ -16,8 +16,11 @@ jobs:
       version: '3.x'
       installationPath: $(Agent.ToolsDirectory)/dotnet
 
-  - script: dotnet restore
-    displayName: 'Restore NuGet Packages'
+  - task: NuGetCommand@2
+    inputs:
+      command: 'restore'
+      restoreSolution: '**/*.sln'
+      feedsToUse: 'select'
 
   - script: dotnet build --configuration Debug
     displayName: 'Build Solution'
