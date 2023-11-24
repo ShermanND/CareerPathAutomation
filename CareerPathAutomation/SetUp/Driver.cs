@@ -14,7 +14,8 @@ namespace CareerPathAutomation.SetUp
         // METHODS
         public void DriverSetUp()
         {
-            driver.Navigate().GoToUrl("https://para.testar.org/parabank/register.htm");
+            driver.Navigate().GoToUrl("https://parabank.parasoft.com/parabank/index.htm");
+            //driver.Navigate().GoToUrl("https://para.testar.org/parabank/index.htm");
             driver.Manage().Window.FullScreen();
         }
     }
