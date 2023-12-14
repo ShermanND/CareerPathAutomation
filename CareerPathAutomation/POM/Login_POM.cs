@@ -1,6 +1,8 @@
-﻿using OpenQA.Selenium;
+﻿using CareerPathAutomation.Data;
+using OpenQA.Selenium;
+using System;
 
-namespace CareerPathAutomation.POM
+namespace CareerPathAutomation
 {
     public class Login_POM
     {
@@ -22,6 +24,8 @@ namespace CareerPathAutomation.POM
         private IWebElement Password => driver.FindElement(By.CssSelector(input_password));
         private IWebElement loginButton => driver.FindElement(By.CssSelector(button_login));
 
+        private IWebElement logOut => driver.FindElement(By.XPath("//div[@id='leftPanel']/ul//a[@href='/parabank/logout.htm']"));
+
         // METHODS
         public void LoginUser(string username, int usernumber)
         {
@@ -30,9 +34,9 @@ namespace CareerPathAutomation.POM
             loginButton.Click();
         }
 
-        public Boolean GetElementIsDisplayed(By selector)
+        public bool GetElementIsDisplayed(By selector)
         {
-            Boolean elementDisplayed;
+            bool elementDisplayed;
 
             try
             {
@@ -46,5 +50,13 @@ namespace CareerPathAutomation.POM
 
             return elementDisplayed;
         }
+
+       public void clickOnLogOut()
+        {
+            logOut.Click();
+        }
+
     }
+
+    
 }

@@ -1,10 +1,10 @@
-﻿using OpenQA.Selenium.Chrome;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using CareerPathAutomation.Data;
-using CareerPathAutomation.POM;
-using CareerPathAutomation.SetUp;
+using OpenQA.Selenium.Chrome;
+using System;
+using System.Threading;
 
-namespace CareerPathAutomation.Tests
+namespace CareerPathAutomation
 {
     [TestFixture]
     public class AccountsOverview
@@ -12,24 +12,25 @@ namespace CareerPathAutomation.Tests
         private IWebDriver driver;
         private AccountsOverview_POM accountsoverviewpom;
 
+
         [OneTimeSetUp]
         public void Setup()
         {
             // Initialize driver setup
             driver = new ChromeDriver();
-            Driver driverSetup = new Driver(driver);
+            Driver driverSetup = new(driver);
             driverSetup.DriverSetUp();
 
             // Login user
-            Login_POM loginpom = new Login_POM(driver);
-            Credentials credentials = new Credentials();
+            Login_POM loginpom = new(driver);
+            Credentials credentials = new();
             loginpom.LoginUser(credentials.username, credentials.usernumber);
 
             // Verify login error message is true
-            Boolean loginError = loginpom.GetElementIsDisplayed(By.CssSelector(loginpom.p_errorMessage));
+            bool loginError = loginpom.GetElementIsDisplayed(By.CssSelector(loginpom.p_errorMessage));
 
             // Register user if loginError is true
-            RegisterUser_POM registeruserpom = new RegisterUser_POM(driver);
+            RegisterUser_POM registeruserpom = new(driver);
             registeruserpom.RegisterUser(loginError, By.CssSelector(registeruserpom.span_errorMessage), credentials.username, credentials.usernumber);
 
             // Navigate to Accounts Overview screen
@@ -41,7 +42,7 @@ namespace CareerPathAutomation.Tests
 
         [Test, Order(1)]
         [Category("Accounts Overview | Accounts Overview screen title is visible")]
-        public void Test0201()
+        public void Test01()
         {
             // Given I have accessed to Parabank website
             // When I navigate to Accounts Overview screen
@@ -56,7 +57,7 @@ namespace CareerPathAutomation.Tests
             // Given I have accessed to Parabank website
             // When I navigate to Accounts Overview screen
             // Then I verify that Screen title is Accounts Overview
-            Titles titles = new Titles();
+            Titles titles = new();
             accountsoverviewpom.VerifyElementText(By.CssSelector(accountsoverviewpom.h1_accountsOverview), titles.accountsOverview);
         }
 
@@ -67,7 +68,7 @@ namespace CareerPathAutomation.Tests
             // Given I have accessed to Parabank website
             // When I navigate to Accounts Overview screen
             // Then I verify that Account, Balance & Available Amount are displayed as labels
-            Labels labels = new Labels();
+            Labels labels = new();
             accountsoverviewpom.VerifyElementsLabels(By.CssSelector(accountsoverviewpom.table_labels), labels.accountsOverview);
         }
 
@@ -91,7 +92,7 @@ namespace CareerPathAutomation.Tests
             accountsoverviewpom.ClickElement(By.CssSelector(accountsoverviewpom.link_accountNumber));
 
             // Then I verify that Account number redirects to Account Activity screen
-            Titles titles = new Titles();
+            Titles titles = new();
             accountsoverviewpom.VerifyElementText(By.CssSelector(accountsoverviewpom.h1_accountActivity), titles.accountActivity);
             driver.Navigate().Back();
         }
@@ -143,7 +144,7 @@ namespace CareerPathAutomation.Tests
             // Given I have accessed to Parabank website
             // When I navigate to Accounts Overview screen
             // Then I verify that the Footnote text is: Balance includes deposits that may be subject to holds
-            Messages messages = new Messages();
+            Messages messages = new();
             accountsoverviewpom.VerifyElementText(By.CssSelector(accountsoverviewpom.label_note), messages.footnote);
         }
 

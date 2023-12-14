@@ -1,6 +1,9 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
+using System.Collections.Generic;
+using System;
 
-namespace CareerPathAutomation.POM
+namespace CareerPathAutomation
 {
     public class UpdatingContactInformation_POM
     {
@@ -91,7 +94,7 @@ namespace CareerPathAutomation.POM
 
         public void VerifyElementIsDisplayed(By selector)
         {
-            Boolean elementDisplayed = driver.FindElement(selector).Displayed;
+            bool elementDisplayed = driver.FindElement(selector).Displayed;
             Assert.IsTrue(elementDisplayed);
         }
 
@@ -101,7 +104,7 @@ namespace CareerPathAutomation.POM
 
             foreach (var webElement in webElements)
             {
-                Boolean elementDisplayed = webElement.Displayed;
+                bool elementDisplayed = webElement.Displayed;
                 Assert.IsTrue(elementDisplayed);
             }
         }
@@ -124,19 +127,19 @@ namespace CareerPathAutomation.POM
 
             foreach (var webElement in webElements)
             {
-                webElement.SendKeys(username + usernumber);
+                webElement.SendKeys(username+usernumber);
             }
         }
 
-        public Boolean GetElementIsDisplayed(By selector)
+        public bool GetElementIsDisplayed(By selector)
         {
-            Boolean elementDisplayed = driver.FindElement(selector).Displayed;
+            bool elementDisplayed = driver.FindElement(selector).Displayed;
             return elementDisplayed;
         }
 
         public void VerifyElementIsNotDisplayed(By selector)
         {
-            Boolean errorDisplayed;
+            bool errorDisplayed;
 
             try
             {

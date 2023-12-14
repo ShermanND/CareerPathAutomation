@@ -1,6 +1,11 @@
 ﻿using OpenQA.Selenium;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace CareerPathAutomation.POM
+namespace CareerPathAutomation
 {
     public class HomeMenu_POM
     {
@@ -25,6 +30,18 @@ namespace CareerPathAutomation.POM
         public void clickonLocations()
         {
             Locations.Click();
+        }
+
+        IWebElement homescreen => driver.FindElement(By.XPath("//li[@class='home']/a"));
+        public void clickonHomeScreen()
+        {
+            homescreen.Click();
+        }
+
+        IWebElement customerCare => driver.FindElement(By.XPath("//div[@id='headerPanel']/ul[@class='button']//a[@href='contact.htm']"));
+        public void clickonCustomerCare()
+        {
+            customerCare.Click();
         }
     }
 }
