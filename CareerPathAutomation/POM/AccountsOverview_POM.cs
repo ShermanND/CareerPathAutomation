@@ -1,6 +1,9 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
+using System.Collections.Generic;
+using System;
 
-namespace CareerPathAutomation.POM
+namespace CareerPathAutomation
 {
     public class AccountsOverview_POM
     {
@@ -41,7 +44,7 @@ namespace CareerPathAutomation.POM
 
         public void VerifyElementIsDisplayed(By selector)
         {
-            Boolean elementDisplayed = driver.FindElement(selector).Displayed;
+            bool elementDisplayed = driver.FindElement(selector).Displayed;
             Assert.IsTrue(elementDisplayed);
         }
 

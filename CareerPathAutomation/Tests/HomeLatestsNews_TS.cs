@@ -1,10 +1,7 @@
-﻿using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium;
-using CareerPathAutomation.Data;
-using CareerPathAutomation.POM;
-using CareerPathAutomation.SetUp;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 
-namespace CareerPathAutomation.Tests
+namespace CareerPathAutomation
 {
     [TestFixture]
     public class HomeLatestNews
@@ -18,7 +15,7 @@ namespace CareerPathAutomation.Tests
 
             // Initialize driver setup
             driver = new ChromeDriver();
-            Driver driverpom = new Driver(driver);
+            Driver driverpom = new(driver);
             driverpom.DriverSetUp();
 
             // Initialize HomeLatestNews objects
@@ -47,7 +44,7 @@ namespace CareerPathAutomation.Tests
             homelatestnewspom.ClickOnLink(By.XPath(homelatestnewspom.link_reOpened));
 
             // Then I verify that Parabank Is Now Re-Opened link redirects to News screen
-            Titles titles = new Titles();
+            Titles titles = new();
             homelatestnewspom.AssertTitle(By.CssSelector(homelatestnewspom.h1_title), titles.parabankNews);
         }
 
@@ -72,7 +69,7 @@ namespace CareerPathAutomation.Tests
             homelatestnewspom.ClickOnLink(By.XPath(homelatestnewspom.link_billPay));
 
             // Then I verify that New Online Bill Pay link redirects to News screen
-            Titles titles = new Titles();
+            Titles titles = new();
             homelatestnewspom.AssertTitle(By.CssSelector(homelatestnewspom.h1_title), titles.parabankNews);
         }
 
@@ -97,7 +94,7 @@ namespace CareerPathAutomation.Tests
             homelatestnewspom.ClickOnLink(By.XPath(homelatestnewspom.link_accountTransfers));
 
             // Then I verify that New Online Account Transfers link redirects to News screen
-            Titles titles = new Titles();
+            Titles titles = new();
             homelatestnewspom.AssertTitle(By.CssSelector(homelatestnewspom.h1_title), titles.parabankNews);
         }
 

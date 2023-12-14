@@ -1,6 +1,8 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
+using System;
 
-namespace CareerPathAutomation.POM
+namespace CareerPathAutomation
 {
     public class HomeLatestNews_POM
     {
@@ -32,7 +34,7 @@ namespace CareerPathAutomation.POM
 
         public void VerifyElementIsDisplayed(By selector)
         {
-            Boolean isDiplayed = driver.FindElement(selector).Displayed;
+            bool isDiplayed = driver.FindElement(selector).Displayed;
             Assert.IsTrue(isDiplayed);
         }
     }

@@ -1,13 +1,11 @@
-﻿using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium;
-using CareerPathAutomation.SetUp;
-using CareerPathAutomation.POM;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 
-namespace CareerPathAutomation.Tests
+namespace CareerPathAutomation
 {
     [TestFixture]
     public class HomeFooter
-    {
+	{
         IWebDriver driver;
         HomeFooter_POM homefooterpom;
 
@@ -16,7 +14,7 @@ namespace CareerPathAutomation.Tests
         {
             // Initialize driver setup
             driver = new ChromeDriver();
-            Driver driverpom = new Driver(driver);
+            Driver driverpom = new(driver);
             driverpom.DriverSetUp();
 
             homefooterpom = new HomeFooter_POM(driver);

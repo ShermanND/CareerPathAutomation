@@ -1,4 +1,4 @@
-﻿namespace CareerPathAutomation.Data
+﻿namespace CareerPathAutomation
 {
     public class Messages
     {
