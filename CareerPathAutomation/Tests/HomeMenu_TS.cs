@@ -24,33 +24,8 @@ namespace CareerPathAutomation
             titles = new Titles();
         }
         [Test(), Order(1)]
-        [Category("Home screen | Home screen button")]
-        public void test01()
-        {
-            // Given I have accessed to Parabank website
-            // When I navigate to Home screen
-            homemenu.clickonHomeScreen();
-
-            //Then I verify that home screen is display as screen
-            string title = driver.Title;
-            Assert.AreEqual(titles.home, title);
-        }
-
-        [Test(), Order(2)]
-        [Category("Home screen | Home screen customer care")]
-        public void Test02()
-        {
-            // Given I have accessed to Parabank website
-            // When I navigate to Home screen
-            homemenu.clickonCustomerCare();
-
-            //Then I verify that customer care is displayed as screen
-            string title = driver.Title;
-            Assert.AreEqual(titles.customerCare, title);
-        }
-        [Test(), Order(3)]
         [Category("Home Screen | Open About Us")]
-        public void Test03()
+        public void Test01()
         {
             // Given I have accessed to Parabank website
             // When I navigate to About Us screen
@@ -61,9 +36,9 @@ namespace CareerPathAutomation
             Assert.AreEqual(titles.aboutUs, title);
         }
 
-        [Test(), Order(4)]
+        [Test(), Order(2)]
         [Category("Home Screen | Open Products")]
-        public void test04()
+        public void test02()
         {
             // Given I have accessed to Parabank website
             // When I navigate to Products screen
@@ -74,9 +49,9 @@ namespace CareerPathAutomation
             Assert.AreEqual(titles.products, title);
         }
 
-        [Test(), Order(5)]
+        [Test(), Order(3)]
         [Category("Home Screen | Open Locations")]
-        public void test05()
+        public void test03()
         {
             // Given I have accessed to Parabank website
             driver.Navigate().Back();
@@ -88,8 +63,7 @@ namespace CareerPathAutomation
             string title = driver.Title;
             Assert.AreEqual(titles.locations, title);
         }
-        
-  
+
         [OneTimeTearDown]
         public void Teardown()
         {

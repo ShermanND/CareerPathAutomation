@@ -1,5 +1,4 @@
-﻿using CareerPathAutomation.Data;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using System;
 
 namespace CareerPathAutomation
@@ -23,8 +22,6 @@ namespace CareerPathAutomation
         private IWebElement Username => driver.FindElement(By.CssSelector(input_username));
         private IWebElement Password => driver.FindElement(By.CssSelector(input_password));
         private IWebElement loginButton => driver.FindElement(By.CssSelector(button_login));
-
-        private IWebElement logOut => driver.FindElement(By.XPath("//div[@id='leftPanel']/ul//a[@href='/parabank/logout.htm']"));
 
         // METHODS
         public void LoginUser(string username, int usernumber)
@@ -50,13 +47,5 @@ namespace CareerPathAutomation
 
             return elementDisplayed;
         }
-
-       public void clickOnLogOut()
-        {
-            logOut.Click();
-        }
-
     }
-
-    
 }

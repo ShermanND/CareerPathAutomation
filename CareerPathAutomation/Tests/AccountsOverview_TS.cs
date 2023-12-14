@@ -12,7 +12,6 @@ namespace CareerPathAutomation
         private IWebDriver driver;
         private AccountsOverview_POM accountsoverviewpom;
 
-
         [OneTimeSetUp]
         public void Setup()
         {
@@ -42,7 +41,7 @@ namespace CareerPathAutomation
 
         [Test, Order(1)]
         [Category("Accounts Overview | Accounts Overview screen title is visible")]
-        public void Test01()
+        public void Test0201()
         {
             // Given I have accessed to Parabank website
             // When I navigate to Accounts Overview screen
