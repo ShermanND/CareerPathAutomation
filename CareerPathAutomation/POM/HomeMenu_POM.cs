@@ -31,17 +31,5 @@ namespace CareerPathAutomation
         {
             Locations.Click();
         }
-
-        IWebElement homescreen => driver.FindElement(By.XPath("//li[@class='home']/a"));
-        public void clickonHomeScreen()
-        {
-            homescreen.Click();
-        }
-
-        IWebElement customerCare => driver.FindElement(By.XPath("//div[@id='headerPanel']/ul[@class='button']//a[@href='contact.htm']"));
-        public void clickonCustomerCare()
-        {
-            customerCare.Click();
-        }
     }
 }
