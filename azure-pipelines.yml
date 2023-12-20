@@ -1,4 +1,4 @@
-# Definición del evento que desencadenará la ejecución del pipeline.
+# Definición del evento que desencadenará la ejecución del pipeline
 trigger:
 - master
 
